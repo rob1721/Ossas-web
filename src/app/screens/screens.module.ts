@@ -5,11 +5,12 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
+import { PhotoScreenComponent } from './photo-screen/photo-screen.component';
 
 
 
 @NgModule({
-  declarations: [LoginScreenComponent, HomeScreenComponent],
+  declarations: [LoginScreenComponent, HomeScreenComponent, PhotoScreenComponent],
   imports: [
     CommonModule,
     AppRoutingModule

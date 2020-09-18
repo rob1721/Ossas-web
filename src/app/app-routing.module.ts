@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
+import { PhotoScreenComponent } from './screens/photo-screen/photo-screen.component';
 
 const routes: Routes = [
   {
@@ -12,12 +13,16 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeScreenComponent,
-  }
-/*  {
+  },
+  {
+    path: 'photo',
+    component: PhotoScreenComponent,
+  },
+  {
     path: '**',
-    redirectTo: '/',
+    redirectTo: '/login',
     pathMatch: 'full',
-  }*/
+  }
 ];
 
 @NgModule({

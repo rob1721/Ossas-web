@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Img } from 'src/app/core/models/img.model';
+import { HardCode } from 'src/app/hardcode';
 
 @Component({
   selector: 'app-photo-screen',
@@ -8,6 +9,7 @@ import { Img } from 'src/app/core/models/img.model';
 })
 export class PhotoScreenComponent implements OnInit {
 
+  hardCode: HardCode;
   imageDetails: Img = {
     image: 'assets/images/prueba.jpg',
     title: 'RetroWallpaper',

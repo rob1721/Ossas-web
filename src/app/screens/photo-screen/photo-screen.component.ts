@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Img } from 'src/app/core/models/img.model';
 
 @Component({
   selector: 'app-photo-screen',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoScreenComponent implements OnInit {
 
-  constructor() { }
+  imageDetails: Img = {
+    image: 'assets/images/prueba.jpg',
+    title: 'RetroWallpaper',
+    author: 'Roberto',
+    likes: 5,
+    description: 'Esta es una prueba de la imagen puesta, es un wallpaper retro, foto tomada en mi balcón, 100% real no fake',
+    comments: null,
+  };
 
-  ngOnInit(): void {
-  }
+constructor() {}
+
+ngOnInit(): void {}
+
 
 }

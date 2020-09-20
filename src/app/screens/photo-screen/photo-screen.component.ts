@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Img } from 'src/app/core/models/img.model';
 import { HardCode } from 'src/app/hardcode';
 
@@ -9,17 +10,21 @@ import { HardCode } from 'src/app/hardcode';
 })
 export class PhotoScreenComponent implements OnInit {
 
-  hardCode: HardCode;
+  hardCode = new HardCode();
+
   imageDetails: Img = {
     image: 'assets/images/prueba.jpg',
     title: 'RetroWallpaper',
     author: 'Roberto',
     likes: 5,
     description: 'Esta es una prueba de la imagen puesta, es un wallpaper retro, foto tomada en mi balcón, 100% real no fake',
-    comments: null,
+    comments: this.hardCode.comments,
+    date: Date.now(),
   };
 
-constructor() {}
+constructor() {
+  console.log(this.imageDetails.comments);
+}
 
 ngOnInit(): void {}
 

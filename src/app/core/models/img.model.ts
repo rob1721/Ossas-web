@@ -7,4 +7,5 @@ export interface Img {
     likes: number;
     description: string;
     comments?: Commentary[];
+    date: number;
 }

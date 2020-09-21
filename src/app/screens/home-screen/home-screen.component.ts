@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarouselComponent } from 'src/app/components/carousel/carousel.component'; 
 
 @Component({
   selector: 'app-home-screen',

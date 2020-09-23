@@ -8,6 +8,7 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { PhotoScreenComponent } from './photo-screen/photo-screen.component';
 
 import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
+import { LoginSessionScreenComponent } from './login-session-screen/login-session-screen.component';
 
 
 
@@ -16,7 +17,8 @@ import { CarouselComponent } from 'src/app/components/carousel/carousel.componen
     LoginScreenComponent,
     PhotoScreenComponent,
     CarouselComponent,
-    HomeScreenComponent
+    HomeScreenComponent,
+    LoginSessionScreenComponent,
   ],
   imports: [
     CommonModule,

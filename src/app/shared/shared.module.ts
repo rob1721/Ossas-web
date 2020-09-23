@@ -4,17 +4,20 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarInComponent } from './components/navbar-in/navbar-in.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    NavbarInComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    NavbarInComponent
   ]
 })
 export class SharedModule { }

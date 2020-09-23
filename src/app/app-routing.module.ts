@@ -5,6 +5,7 @@ import { HomeScreenComponent } from './screens/home-screen/home-screen.component
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
 import { PhotoScreenComponent } from './screens/photo-screen/photo-screen.component';
 import { LoginSessionScreenComponent } from './screens/login-session-screen/login-session-screen.component';
+import { RegisterScreenComponent } from './screens/register-screen/register-screen.component';
 
 const routes: Routes = [
   {
@@ -23,8 +24,13 @@ const routes: Routes = [
     path: 'session',
     component: LoginSessionScreenComponent,
   },
+  {
+    path: 'register',
+    component: RegisterScreenComponent
+  },
+  {
     path: '**',
-    redirectTo: '/login',
+    redirectTo: '/home',
     pathMatch: 'full',
   }
 ];

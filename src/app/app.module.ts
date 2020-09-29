@@ -3,24 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from './../app/shared/shared.module';
 
+import { ScreensModule } from "src/app/screens/screens.module";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { LoginScreenComponent } from 'src/app/screens/login-screen/login-screen.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CarouselComponent,
-    LoginScreenComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ScreensModule
   ],
   providers: [],
   bootstrap: [AppComponent]

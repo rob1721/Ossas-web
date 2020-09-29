@@ -5,11 +5,13 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavbarInComponent } from './components/navbar-in/navbar-in.component';
+import { NavbarLogComponent } from './components/navbar-log/navbar-log.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    NavbarInComponent
+    NavbarInComponent,
+    NavbarLogComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { NavbarInComponent } from './components/navbar-in/navbar-in.component';
   ],
   exports: [
     NavbarComponent,
-    NavbarInComponent
+    NavbarInComponent,
+    NavbarLogComponent
   ]
 })
 export class SharedModule { }

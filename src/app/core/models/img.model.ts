@@ -5,7 +5,7 @@ export interface Img {
     title: string;
     author: string;
     likes: number;
-    description: string;
+    description?: string;
     comments?: Commentary[];
     date: number;
 }

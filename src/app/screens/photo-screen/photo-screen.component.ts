@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Img } from 'src/app/core/models/img.model';
-import { EventService } from 'src/app/core/services/event/event.service';
-import { HardCode } from 'src/app/core/services/hardCode/hard-code.service';
-import { User } from 'src/app/core/models/user.model';
+import { ActivatedRoute } from '@angular/router';
+import { Post } from 'src/app/core/models/post.model';
+import { PostService } from 'src/app/core/services/post/post.service';
 
 @Component({
   selector: 'app-photo-screen',
@@ -12,39 +10,30 @@ import { User } from 'src/app/core/models/user.model';
 })
 export class PhotoScreenComponent implements OnInit {
 
-  public image: Img;
-  imgloaded: boolean;
-  allImgs: Img[];
-
-  user: User = {
-    name: 'User1',
-    avatar: 'assets/images/ping.png',
-  };
-  comment = 'Fea la wea de foto, borrala!';
-  hardCode: HardCode;
-  hardCodeComments;
+  public post: Post;
+  public nombres: string[] = [
+    'Cristian',
+    'Felipe',
+    'Francisco',
+    'Roberto'
+  ];
+  public comments: string[] = [
+    'Este es un comentario',
+    'Este es otro comentario',
+    'Este es el tercer comentario',
+    'Este es el cuarto comentario'
+  ];
+  public avatar = 'assets/images/q.jpg';
 
   constructor(
-    private eventService: EventService,
+    private postService: PostService,
+    private activatedRoute: ActivatedRoute,
   ) {
-    this.imgloaded = false;
-    this.allImgs = this.hardCode.getAllImg();
-    // this.hardCodeComments = this.hardCode.comments[0];
-    // console.log(this.hardCodeComments);
+    const { id } = this.activatedRoute.snapshot.params; // quiero sacar el atributo id dentro de params
+    this.post = this.postService.getPostById(id);
   }
 
   ngOnInit(): void {
-    this.eventService.on('select-event', (id: string) => {
-      console.log(id);
-      this.selectedImage(id);
-    });
-    console.log('primera llegada');
-  }
-
-  public selectedImage(id: string) {
-    this.image = id;
-    this.imgloaded = true;
-    console.log(this.image);
   }
 
 }

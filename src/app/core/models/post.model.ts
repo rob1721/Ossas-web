@@ -1,10 +1,10 @@
 import { Commentary } from './comment.model';
 
-export interface Img {
+export interface Post {
     id?: string;
     image: string;
     title: string;
-    author: string;
+    author: string; // tiene q ser id del user
     likes: number;
     category?: string[];
     description?: string;

@@ -1,10 +1,11 @@
 <app-navbar-log></app-navbar-log>
-<div class="container-fluid">
+
+<div class="container-fluid" *ngIf="imgloaded">
     <div class="row mt-5">
         <div class="col-lg-6">
             <div class="card" style="height: auto; max-height: 700px;">
                 <div class="card-body">
-                  <img [src]="imageDetails.image" alt="imagen de prueba" class="img-fluid">
+                  <img [src]="image.image" alt="imagen de prueba" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -12,57 +13,59 @@
             <div class="col-lg-12 mt-4"> <!--hay un pequeño descuadre..pensar este valor-->
                 <div class="card">
                     <div class="card-body">
-                        <h2>{{ imageDetails.title }}</h2>
-                        <h5>{{ imageDetails.likes }} </h5>
+                        <h2>{{ image.title }}</h2>
+                        <h5>{{ image.likes }} </h5>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 mt-4">
                 <div class="card">
                     <div class="card-body">
-                        {{ imageDetails.author }}
+                        {{ image.author }}
                     </div>
                 </div>
             </div>
             <div class="col-lg-12 mt-4">
                 <div class="card" style="height: 10rem; overflow-y: scroll;">
                     <div class="card-body">
-                        {{ imageDetails.description }}
+                        {{ image.description }}
                     </div>
                 </div>
             </div>
+
+
             <div class="col-lg-12 mt-4">
+                <div>
+                    
+                </div>
                 <div class="card" style="height: auto; max-height: 25rem; overflow-y: scroll;">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-2">
-                                <img [src]="imageDetails.comments[0].user.avatar" alt="avatar of user" style="max-block-size: 2.5rem;">
+                                <img [src]="user.avatar" alt="avatar of user" style="max-block-size: 2.5rem;">
                             </div>
                             <div class="col-sm-10">
                                 <div class="row">
-                                    {{ imageDetails.comments[0].user.name }}
+                                    {{ user.name }}
                                 </div>
                                 <div class="row">
-                                    {{ imageDetails.comments[0].comment }}
+                                    {{ comment }}
                                 </div>
                             </div>
                         </div>
                         <div class="row my-4">
                             <div class="col-sm-2">
-                                <img [src]="imageDetails.comments[1].user.avatar" alt="avatar of user" style="max-block-size: 2.5rem;">
+                                <img [src]="user.avatar" alt="avatar of user" style="max-block-size: 2.5rem;">
                             </div>
                             <div class="col-sm-10">
                                 <div class="row">
-                                    {{ imageDetails.comments[1].user.name }}
+                                    {{ user.name }}
                                 </div>
                                 <div class="row">
-                                    {{ imageDetails.comments[1].comment }}
+                                    {{ comment }}
                                 </div>
                             </div>
                         </div>
-                            <!--<div *ngFor="let comments of imageDetails.comments; index as index">
-                                usar un for para mostrar todos los users + detalles..
-                            </div>-->
                             
                             
                     </div>

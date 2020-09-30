@@ -1,65 +1,13 @@
+<app-navbar-log></app-navbar-log>
 
 <div class="flex-container" style="display: flex; flex-wrap: wrap;">
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 1;">
-        <div class="content_img">
-        <img class="responsive" src="/assets/Images/—Pngtree—gold number 1_5330864.png" alt="No carga tu wea" style="width:128px; height:128px;">
-        <div>Uno</div>
+    <ng-container>
+        <div *ngFor="let img of hardCodeImages">
+            <div 
+                (click)="selectImage(img)"
+                routerLink='/photo/{{img.id}}' class="card" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; grid-column: auto; border: 2px; width: fit-content; min-width: 250px; max-width: 500px;; border-radius: 15%; background-color: #202020;">
+                <img class="img-fluid" style="border-radius: 15%; width: 100%; margin-left: auto; margin-right: auto; margin-top: 3%; margin-bottom: 3%; box-shadow: black; " [src]="img.image" alt="imagen de users">
+            </div>
         </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 2;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 2_5330866.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Dos</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 3;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 3_5330868.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Tres</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 1;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 4_5330869.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Cuatro</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 2;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 5_5330870.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Cinco</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 3;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 6_5330872.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Seis</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 1;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 7_5330848.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Siete</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 2;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 8_5330850.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Ocho</div>
-        </div>
-    </div>
-
-    <div class="card" style="margin-left: 20px; margin-top: 10px; width: 9rem; grid-column: 3;">
-        <div class="content_img">
-        <img class="card-img-top" src="/assets/Images/—Pngtree—gold number 9_5330851.png" alt="No carga tu wea" style="width:128px;height:128px;">
-        <div>Nueve</div>
-        </div>
-    </div>
+    </ng-container>
 </div>

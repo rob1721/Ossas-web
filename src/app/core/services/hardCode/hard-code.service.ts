@@ -310,5 +310,9 @@ export class HardCode{
   getAllImg() {
     return this.imgListAll;
   }
+
+  getAllComents() {
+      return this.comments;
+  }
 }
 

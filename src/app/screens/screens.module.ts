@@ -8,7 +8,8 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { PhotoScreenComponent } from './photo-screen/photo-screen.component';
 import { LoginSessionScreenComponent } from './login-session-screen/login-session-screen.component';
 import { RegisterScreenComponent } from './register-screen/register-screen.component';
-
+import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
+import { LogoComponent } from '../components/logo/logo.component';
 
 
 
@@ -18,12 +19,14 @@ import { RegisterScreenComponent } from './register-screen/register-screen.compo
     PhotoScreenComponent,
     HomeScreenComponent,
     LoginSessionScreenComponent,
-    RegisterScreenComponent
-  ],
+    RegisterScreenComponent,
+    CarouselComponent,
+    LogoComponent
+    ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ScreensModule { }

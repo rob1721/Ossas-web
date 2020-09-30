@@ -6,12 +6,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavbarInComponent } from './components/navbar-in/navbar-in.component';
 import { NavbarLogComponent } from './components/navbar-log/navbar-log.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     NavbarInComponent,
-    NavbarLogComponent
+    NavbarLogComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { NavbarLogComponent } from './components/navbar-log/navbar-log.component
   exports: [
     NavbarComponent,
     NavbarInComponent,
-    NavbarLogComponent
+    NavbarLogComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

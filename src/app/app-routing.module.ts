@@ -14,10 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    // loadChildren: () => import('src/app/screens/screens.module').then(m => m.ScreensModule)
     component: HomeScreenComponent,
   },
   {
-    path: 'photo',
+    path: 'photo/:id',
     component: PhotoScreenComponent,
   },
   {

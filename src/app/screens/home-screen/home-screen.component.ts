@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HardCode } from 'src/app/core/services/hardCode/hard-code.service';
 
-import { Img } from 'src/app/core/models/img.model';
-import { EventService } from 'src/app/core/services/event/event.service';
+import { Post } from 'src/app/core/models/post.model';
+import { PostService } from 'src/app/core/services/post/post.service';
 
 @Component({
   selector: 'app-home-screen',
@@ -11,36 +10,19 @@ import { EventService } from 'src/app/core/services/event/event.service';
 })
 export class HomeScreenComponent implements OnInit {
 
-  hardCode: HardCode;
-  hardCodeUsers;
-  hardCodeUsersLength;
-  hardCodeImages;
+  public posts: Post[];
 
   constructor(
-    private eventService: EventService,
+    private postService: PostService,
     ) {
-    this.hardCode = new HardCode();
-    this.hardCodeUsers = this.hardCode.users;
-    this.hardCodeImages = this.gettingImages();
+      this.posts = this.postService.getAllPosts();
   }
 
   ngOnInit(): void {
-    this.eventService.on('select-event', (id: string) => {
-      console.log('Evento Capturado');
-    });
   }
 
-  gettingImages() {
-    return this.hardCode.imglista;
+  selectPost(post: Post) {
+    this.postService.selectPost(post);
   }
 
-  selectImage(img: Img) {
-    console.log(img);
-    this.eventService.emitSelectEvent(img.id);
-  }
-
-  gettingUsers() {
-    return this.hardCode.users;
-  }
- // routerLink='/photo/{{img.id}}'
 }

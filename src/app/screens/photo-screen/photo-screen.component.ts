@@ -15,13 +15,15 @@ export class PhotoScreenComponent implements OnInit {
     'Cristian',
     'Felipe',
     'Francisco',
-    'Roberto'
+    'Roberto',
+    'BLEEEH'
   ];
   public comments: string[] = [
     'Este es un comentario',
     'Este es otro comentario',
     'Este es el tercer comentario',
-    'Este es el cuarto comentario'
+    'Este es el cuarto comentario',
+    'Este es el quinto comentario'
   ];
   public avatar = 'assets/images/q.jpg';
 

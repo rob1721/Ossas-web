@@ -11,6 +11,7 @@ import { RegisterScreenComponent } from './register-screen/register-screen.compo
 import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
 import { LogoComponent } from '../components/logo/logo.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LoginGridComponent } from '../components/login-grid/login-grid.component';
 
 
 
@@ -23,7 +24,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     RegisterScreenComponent,
     CarouselComponent,
     LogoComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    LoginGridComponent
     ],
   imports: [
     CommonModule,

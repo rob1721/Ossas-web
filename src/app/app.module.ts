@@ -14,7 +14,7 @@ import { EventService } from './core/services/event/event.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

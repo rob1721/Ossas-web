@@ -16,20 +16,46 @@ export class ProfileScreenComponent implements OnInit {
   public userService: UserService;
   public user: User;
   public posts: Post[];
+  public postSelected: Post;
 
   constructor(
-    private formBuilder: FormBuilder,
+    // private formBuilder: FormBuilder,
     // private editUserService: EditUserService,
   ) {
-    // this.formEmitter = new EventEmitter<FormGroup()>;
     this.userService = new UserService();
     this.user = this.userService.getLoged();
     this.posts = this.user.posts;
+    // this.formEmitter = new EventEmitter<FormGroup()>;
   }
 
   ngOnInit(): void {
     // this.buildForm();
   }
 
+  selectPost(post: Post, id: string) {
+    this.postSelected = post;
+    console.log('Haz Seleccionado un post');
+    console.log(this.postSelected);
+  }
+
+  editingPost(post: Post, id: string) {
+    // llamar al servicio y editar!
+    console.log('Deseas Editar un post!');
+    if (post && id) {
+      console.log(post);
+    } else {
+      console.log('No haz seleccionado un post');
+    }
+  }
+
+  deletingPost(post: Post, id: string) {
+    // llamar al servicio y eliminar desde allí
+    console.log('Deseas Eliminar un post');
+    if (post && id) {
+      console.log(post);
+    } else {
+      console.log('No haz seleccionado un post');
+    }
+  }
 
 }

@@ -10,6 +10,7 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavbarLogComponent } from '../components/navbar-home/navbar-log.component';
 
 import { PhotoScreenComponent } from './photo-screen/photo-screen.component';
+import { NavbarPhotoComponent } from '../components/navbar-photo/navbar-photo.component';
 
 import { LoginSessionScreenComponent } from './session-screen/login-session-screen.component';
 import { NavbarSessionComponent } from '../components/navbar-session/navbar-session.component';
@@ -18,6 +19,8 @@ import { RegisterScreenComponent } from './register-screen/register-screen.compo
 import { NavbarInComponent } from '../components/navbar-register/navbar-in.component';
 
 import { ProfileScreenComponent } from './profile-screen/profile-screen.component';
+import { NavbarProfileComponent } from 'src/app/components/navbar-profile/navbar-profile.component';
+
 import { MyimagesScreenComponent } from './myimages-screen/myimages-screen.component';
 
 import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
@@ -35,6 +38,8 @@ import { LoginGridComponent } from '../components/login-grid/login-grid.componen
     NavbarComponent,
 
     PhotoScreenComponent,
+    NavbarPhotoComponent,
+
     HomeScreenComponent,
     NavbarLogComponent,
 
@@ -45,6 +50,8 @@ import { LoginGridComponent } from '../components/login-grid/login-grid.componen
     NavbarInComponent,
 
     ProfileScreenComponent,
+    NavbarProfileComponent,
+
     MyimagesScreenComponent,
 
     CarouselComponent,

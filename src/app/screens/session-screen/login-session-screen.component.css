@@ -1,0 +1,14 @@
+.card-text:before{
+    content: attr(text-pc);
+}
+.forgot-text:before{
+    content: attr(text-pc);
+}
+@media (max-width: 400px) {
+    .card-text:before {
+        content: attr(text-movil);
+    }
+    .forgot-text:before{
+        content: attr(text-movil);
+    }
+}

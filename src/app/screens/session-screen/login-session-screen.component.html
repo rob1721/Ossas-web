@@ -1,29 +1,38 @@
-<app-navbar-session></app-navbar-session>
+<app-navbar></app-navbar>
 
 <div class="container-fluid" style="width: auto;">
   <div class="row mt-5">
     <div class="col-lg-6">
       <div class="card" style="height: auto; background-color: #343a40; border-radius: 1%; color: white; ">
         <div class="card-body">
-          <div class="card-title"> Inicio de Sesión </div>
+          <div class="card-title">
+            <span class="card-text" text-movil="Inicio de Sesión" style="font-size:x-large;"></span> 
+            <span class="card-text" text-pc="Inicio de Sesión" style="font-size:xx-large ;"></span>  
+          </div>
           <div class="card" style="background-color:transparent; border: 0;" >
             <div class="card-body">
           <form action="/action_page.php" class="need-validation">
 
             <div class="form-group" >
-              <label for="uname" >Nombre de Usuario:</label>
-              <input type="text" class="form-control mx-sm" id="uname" placeholder="Usuario" name="uname" required>
+              <label for="usr" >
+                <span class="card-text" text-movil="Nombre de Usuario" style="font-size:large;"></span> 
+                <span class="card-text" text-pc="Nombre de Usuario:" style="font-size:x-large ;"></span>
+              </label>
+              <input type="text" class="form-control mx-sm" id="usr" placeholder="Usuario" name="uname" required>
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Por favor coloque nombre de Usuario.</div>
 
             </div>
             <div class="form-group">
-              <label for="pwd">Contraseña:</label>
+              <label for="pwd">
+                <span class="card-text" text-movil="Contraseña:" style="font-size:large;"></span> 
+                <span class="card-text" text-pc="Contraseña:" style="font-size:x-large ;"></span>
+              </label>
               <input type="password" class="form-control mx-sm" id="pwd" placeholder="Contraseña" name="pswd" required>
               <div class="valid-feedback">Valid.</div>
               <div class="invalid-feedback">Por favor coloque la contraseña.</div>
               <div class="row justify-content-end">
-              <div class="col-sm-3" style="font-size: 0.8vw; margin-top: 0; text-align: right;">
+              <div class="col-sm-3" style="font-size: small; margin-top: 0; text-align: right;">
                 <a routerLink="/home" routerLinkActive="active" >
               Olvidó su contraseña?
             </a></div></div>
@@ -42,7 +51,7 @@
   <div class="col-lg-6">
     <div class="card" style="background-color: transparent; border: 0ch;">
       <div class="body">
-        <div class="row" style="margin-right: 50px; display:flexbox; max-width: 100%;">
+        <div class="row" style="margin-left: 10px ;display:flexbox; max-width: 100%;">
           <div class="col" style="height: 60%; width: 100%;">
             <div class="container" style="width: 100%;height: auto;text-align: center; margin-top: 3%; margin-bottom: 2%;">
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

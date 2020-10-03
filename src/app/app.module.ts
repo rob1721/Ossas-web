@@ -10,8 +10,6 @@ import { AppComponent } from './app.component';
 import { EventService } from './core/services/event/event.service';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

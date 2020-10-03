@@ -1,0 +1,23 @@
+.nav-title:before{
+    content: attr(text-pc);
+}
+
+.button-text:before{
+    content: attr(text-pc);
+}
+
+.form.control:before{
+    content: attr(placeholder);
+}
+
+@media (max-width: 400px) {
+    .nav-title:before {
+        content: attr(text-movil);
+    }
+    .button-text:before {
+        content: attr(text-movil);
+    }
+    .form.control:before {
+        content: none;
+    }
+}

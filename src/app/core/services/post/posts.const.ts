@@ -1,5 +1,38 @@
 import { Post } from '../../models/post.model';
 
+export const SOMEPOSTS: Post [] = [
+    {
+        id: '0',
+        title: 'Titulo 1',
+        author: '0',
+        date: Date.now(),
+        description: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.',
+        image: 'assets/images/k.jpg',
+        likes: 69,
+        // comments: ,
+    },
+    {
+        id: '0',
+        title: 'Titulo 1',
+        author: '0',
+        date: Date.now(),
+        description: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.',
+        image: 'assets/images/k.jpg',
+        likes: 69,
+        // comments: ,
+    },
+    {
+        id: '0',
+        title: 'Titulo 1',
+        author: '0',
+        date: Date.now(),
+        description: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.',
+        image: 'assets/images/k.jpg',
+        likes: 69,
+        // comments: ,
+    },
+];
+
 export const POSTS: Post [] = [
     {
         id: '0',

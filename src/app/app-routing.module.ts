@@ -18,7 +18,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
+    path: 'welcome',
     component: LoginScreenComponent,
   },
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
     component: PhotoScreenComponent,
   },
   {
-    path: 'session',
+    path: 'login',
     component: LoginSessionScreenComponent,
   },
   {

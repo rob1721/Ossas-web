@@ -1,19 +1,9 @@
 <app-navbar-log></app-navbar-log>
 
-<div class="container-fluid">
-
-    <div class="row mt-2 mb-2 ml-2">
-        <div class="col-lg-3">
-            <div class="btn btn-primary" style="margin-right: 10px;">Editar Imagen</div>
-            <div class="btn btn-primary">Eliminar Imagen</div>
-        </div>
-        
-    </div>
-
-</div>
-
-<div class="card-columns">
-    <div class="card" *ngFor="let post of posts" (click)="selectPost(post, post.id)">
+    <div class="card-columns">
+    <div class="card" *ngFor="let post of posts" [routerLink]="[ '/photo', post.id ]">
         <img [src]="post.image" class="card-img-top" alt="Imagen hardcodeada">
     </div>
 </div>
+
+

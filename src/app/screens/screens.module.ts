@@ -27,6 +27,8 @@ import { CarouselComponent } from 'src/app/components/carousel/carousel.componen
 import { LogoComponent } from '../components/logo/logo.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginGridComponent } from '../components/login-grid/login-grid.component';
+import { RegisterFormComponent} from 'src/app/components/register-form/register-form.component';
+import { RegisterGridComponent} from 'src/app/components/register-grid/register-grid.component';
 
 
 
@@ -48,6 +50,8 @@ import { LoginGridComponent } from '../components/login-grid/login-grid.componen
 
     RegisterScreenComponent,
     NavbarInComponent,
+    RegisterFormComponent,
+    RegisterGridComponent,
 
     ProfileScreenComponent,
     NavbarProfileComponent,
@@ -58,6 +62,7 @@ import { LoginGridComponent } from '../components/login-grid/login-grid.componen
     LogoComponent,
     PagenotfoundComponent,
     LoginGridComponent,
+
   ],
   imports: [
     CommonModule,

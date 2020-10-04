@@ -4,50 +4,13 @@
     <div class="column" style='margin-left: 50px; margin-right: 50px; background-color: #343a40; border-radius: 1%; max-width: 90%;'><p style="font-size: 4vw; font-weight: 300; color: white; margin-left: 20px;">Registro</p>
         <div class='container-fluid' style="width: auto; text-align: left;">
             <app-register-form></app-register-form>
-                  </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Dirección de Correo:</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"style="margin-left: 2%; max-width: 95%;">
-                  <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 2vw; font-weight: lighter; color: white">No compartiremos tu email con terceros.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Contraseña:</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1"style="margin-left: 2%; max-width: 95%;">
-                  <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 2vw; font-weight: lighter; color: white">No compartas tu contraseña con nadie.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Repetir Contraseña:</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2" style="margin-left: 2%; max-width: 95%;">
-                  </div>
-                <!--><div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1" style="margin-left: 10px">
-                  <label class="form-check-label" for="exampleCheck1" style="margin-left: 30px; color: white">Do you are have stupid?</label>
-                </div><!-->
-                <div class="form-group">
-                  <div class="container">
-                    <a 
-                    routerLink="/login"
-                    class="btn btn-secondary mr-4 active"
-                    style="margin-right:auto;"
-                    role="button">
-                    Registrarse
-                    </a>
-                  </div></div><!--><button type="submit" class="btn" style="margin-left: 69%; margin-bottom: 10px; background-color: gray ; color: white;">Registrarse</button><!-->
-              </form>
         </div>
     </div>
 
     <div class="row" style="margin-right: 50px; max-width: 50%;">
       <div class="column" style='margin-left: 50px; position: absolute;'><p style="font-size: 3vw;">Únete a esta nueva experiencia</p>
           <div class='container' style="width: auto;">
-              <div class="row">
-                  <img src="/assets/images/1473824210925.png" class="card-img-top" alt="Imagen 1" style="max-width:44.2%; max-height:44.5%; width: auto; height: auto; border: 2px solid #343a40;border-radius: 5%;">
-                  <img src="/assets/images/1472725484019.jpg" class="card-img-top" alt="Imagen 2" style="margin-left:2%; max-width:44.2%; max-height:44.5%; width: auto; height: auto; border: 2px solid #343a40;border-radius: 5%;">
-              </div>
-              <div class="row" style="margin-top: 25px;">
-                  <img src="/assets/images/1472873279290.jpg" class="card-img-top" alt="Imagen 3" style="margin-left:2%; max-width:44.2%; max-height:44.5%; width: auto; height: auto; border: 2px solid #343a40;border-radius: 5%;">
-                  <img src="/assets/images/1466581507037.png" class="card-img-top" alt="Imagen 4" style="margin-left:2%; max-width:44.2%; max-height:44.5%; width: auto; height: auto; border: 2px solid #343a40;border-radius: 5%;">
-              </div>
+              <app-register-grid></app-register-grid>
           </div>
       </div>
     </div>

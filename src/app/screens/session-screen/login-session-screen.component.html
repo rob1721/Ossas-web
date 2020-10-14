@@ -1,84 +1,53 @@
 <app-navbar></app-navbar>
 
-<div class="container-fluid" style="width: auto;">
-  <div class="row mt-5">
-    <div class="col-lg-6">
-      <div class="card" style="height: auto; background-color: #343a40; border-radius: 1%; color: white; ">
-        <div class="card-body">
-          <div class="card-title">
-            <span class="card-text" text-movil="Inicio de Sesión" style="font-size:x-large;"></span> 
-            <span class="card-text" text-pc="Inicio de Sesión" style="font-size:xx-large ;"></span>  
-          </div>
-          <div class="card" style="background-color:transparent; border: 0;" >
-            <div class="card-body">
-          <form action="/action_page.php" class="need-validation">
-
-            <div class="form-group" >
-              <label for="usr" >
-                <span class="card-text" text-movil="Nombre de Usuario" style="font-size:large;"></span> 
-                <span class="card-text" text-pc="Nombre de Usuario:" style="font-size:x-large ;"></span>
-              </label>
-              <input type="text" class="form-control mx-sm" id="usr" placeholder="Usuario" name="uname" required>
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Por favor coloque nombre de Usuario.</div>
-
-            </div>
-            <div class="form-group">
-              <label for="pwd">
-                <span class="card-text" text-movil="Contraseña:" style="font-size:large;"></span> 
-                <span class="card-text" text-pc="Contraseña:" style="font-size:x-large ;"></span>
-              </label>
-              <input type="password" class="form-control mx-sm" id="pwd" placeholder="Contraseña" name="pswd" required>
-              <div class="valid-feedback">Valid.</div>
-              <div class="invalid-feedback">Por favor coloque la contraseña.</div>
-              <div class="row justify-content-end">
-              <div class="col-sm-3" style="font-size: small; margin-top: 0; text-align: right;">
-                <a routerLink="/home" routerLinkActive="active" >
-              Olvidó su contraseña?
-            </a></div></div>
-            </div>
-            <a routerLink="/home" routerLinkActive="active" class="btn btn-secondary active" role="button">
-              Ingresar
-            </a>
-          
-          </form>
-        </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  
-  <div class="col-lg-6">
-    <div class="card" style="background-color: transparent; border: 0ch;">
-      <div class="body">
-        <div class="row" style="margin-left: 10px ;display:flexbox; max-width: 100%;">
-          <div class="col" style="height: 60%; width: 100%;">
-            <div class="container" style="width: 100%;height: auto;text-align: center; margin-top: 3%; margin-bottom: 2%;">
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="/assets/images/session1.png" class="card-img-top"
-                      style="max-width: 80%; max-height: 400px;">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="/assets/images/session2.jpeg" class="card-img-top"
-                      style="max-width: 80%; max-height: 400px">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
+<div class="login-cover">
+  <div class="login-cover-image" [ngStyle]="{ 'background-image': 'url(' + this.bg + ')' }"></div>
+  <div class="login-cover-bg"></div>
 </div>
+
+<!-- begin login -->
+<div class="login login-v2" data-pageload-addclass="animated fadeIn">
+  <!-- begin brand -->
+  <div class="login-header">
+      <div class="brand">
+          <!-- <span class="logo"></span> --> <b>Ossas-Web</b> 
+          <small>La experiencia Ossas.</small>
+      </div>
+      <!-- <div class="icon">
+          <i class="fa fa-lock"></i>
+      </div> -->
+  </div>
+  <!-- end brand -->
+  <!-- begin login-content -->
+  <div class="login-content">
+      <form #f="ngForm" (ngSubmit)="formSubmit(f)" class="margin-bottom-0">
+          <div class="form-group m-b-20">
+              <input type="text" class="form-control form-control-lg" placeholder="Dirección de correo" required />
+          </div>
+          <div class="form-group m-b-20">
+              <input type="password" class="form-control form-control-lg" placeholder="Contraseña" required />
+          </div>
+          <!-- <div class="checkbox checkbox-css m-b-20">
+              <input type="checkbox" id="remember_checkbox" />
+              <label for="remember_checkbox">
+                Remember Me
+              </label>
+          </div> -->
+          <div class="login-buttons">
+              <button type="submit" class="btn btn-success btn-block btn-lg">Iniciar sesión</button>
+          </div>
+          <div class="m-t-20">
+            Si no tienes una cuenta todavia, has click <a routerLink="/register" class="text-success">aquí</a> para registrarte.
+          </div>
+      </form>
+  </div>
+  <!-- end login-content -->
+</div>
+<!-- end login -->
+
+<ul class="login-bg-list clearfix">
+<li *ngFor="let list of bgList" [ngClass]="{ 'active': list.active }">
+  <a href="javascript:;" (click)="changeBg(list)" [ngStyle]="{ 'background-image': 'url(' + list.bg + ')' }"></a>
+</li>
+</ul>
+

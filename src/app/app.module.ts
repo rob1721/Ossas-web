@@ -18,7 +18,7 @@ import { EventService } from './core/services/event/event.service';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ScreensModule
+    ScreensModule,
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

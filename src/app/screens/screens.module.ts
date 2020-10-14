@@ -29,7 +29,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginGridComponent } from '../components/login-grid/login-grid.component';
 import { RegisterFormComponent} from 'src/app/components/register-form/register-form.component';
 import { RegisterGridComponent} from 'src/app/components/register-grid/register-grid.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -68,6 +68,7 @@ import { RegisterGridComponent} from 'src/app/components/register-grid/register-
     CommonModule,
     AppRoutingModule,
     SharedModule,
+    FormsModule
   ]
 })
 export class ScreensModule { }

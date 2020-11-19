@@ -1,4 +1,7 @@
+import { User } from './user.model';
+
 export interface Like {
-    idUser: string; // qué usuarios dieron likes
-    likes: number; // cuantos usuarios dieron likes
+    _id?: string;
+    user?: User; // qué usuarios dieron likes
+    totalLikes: number; // cuantos usuarios dieron likes, se inicializa en 0
 }

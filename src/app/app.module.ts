@@ -8,6 +8,7 @@ import { ScreensModule } from 'src/app/screens/screens.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventService } from './core/services/event/event.service';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { EventService } from './core/services/event/event.service';
     AppRoutingModule,
     SharedModule,
     ScreensModule,
+    CoreModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

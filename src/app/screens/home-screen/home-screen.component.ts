@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Post } from 'src/app/core/models/post.model';
 import { PostService } from 'src/app/core/services/post/post.service';
@@ -11,6 +12,8 @@ import { PostService } from 'src/app/core/services/post/post.service';
 export class HomeScreenComponent implements OnInit {
 
   public posts: Post[];
+  public posts$: Observable<Post[]>;
+  public asdasd: Post[];
 
   constructor(
     private postService: PostService,
@@ -19,6 +22,11 @@ export class HomeScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.postService.getAllPosts2()
+      .subscribe((qwe) => {
+        this.asdasd = qwe;
+        console.log(this.asdasd);
+      }); // cuando se obtengan las URL quitar el subscribe y agregar el | async en el html card-colums *ngIf="posts$ | async; let posts"
   }
 
   selectPost(post: Post) {

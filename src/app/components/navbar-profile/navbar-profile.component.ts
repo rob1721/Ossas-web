@@ -10,10 +10,10 @@ import { UserService } from 'src/app/core/services/user/user.service';
 export class NavbarProfileComponent implements OnInit {
 
   public user: User;
-  public userService: UserService;
 
-  constructor() {
-    this.userService = new UserService();
+  constructor(
+    private userService: UserService
+  ) {
     this.user = this.userService.getLoged();
   }
   ngOnInit(): void {

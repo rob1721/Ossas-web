@@ -13,7 +13,7 @@ export class ProfileScreenComponent implements OnInit {
   // @Output() formEmitter: EventEmitter<FormGroup>; // para enviar la info..adelantando pega
   public editUserForm: FormGroup;
 
-  public userService: UserService;
+
   public user: User;
   public posts: Post[];
   public postSelected: Post;
@@ -21,8 +21,8 @@ export class ProfileScreenComponent implements OnInit {
   constructor(
     // private formBuilder: FormBuilder,
     // private editUserService: EditUserService,
+    public userService: UserService
   ) {
-    this.userService = new UserService();
     this.user = this.userService.getLoged();
     this.posts = this.user.posts;
     // this.formEmitter = new EventEmitter<FormGroup()>;

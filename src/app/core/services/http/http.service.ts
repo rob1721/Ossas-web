@@ -18,15 +18,15 @@ export class HttpService {
   constructor(private httpClient: HttpClient) {
     this.baseUrl = environment.BASE_URL;
 
-    /*this.httpOptions = {
+    this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    };*/
+    };
   }
 
   public get<type>(path: string){
-    return this.httpClient.get<type>(this.baseUrl + path/*, this.httpOptions*/)
+    return this.httpClient.get<type>(this.baseUrl + path, this.httpOptions)
     .pipe(map((data: any) => {
       return data.message as type;
     }));

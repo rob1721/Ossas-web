@@ -1,17 +1,28 @@
 <app-navbar-in></app-navbar-in>
 
-<div class="row" style="margin-top: 60px; max-width: 90%;">
-    <div class="column" style='margin-left: 50px; margin-right: 50px; background-color: #343a40; border-radius: 1%; max-width: 90%;'><p style="font-size: 4vw; font-weight: 300; color: white; margin-left: 20px;">Registro</p>
-        <div class='container-fluid' style="width: auto; text-align: left;">
+<div class="login-cover">
+    <div class="login-cover-image" [ngStyle]="{ 'background-image': 'url(' + this.bg + ')' }"></div>
+    <div class="login-cover-bg"></div>
+</div>
+
+<div class="row" style="max-width: 90%;">
+    <div class="column" style='margin-left: 50px; margin-right: 50px; border-radius: 1%; max-width: 100%; position: relative;'><p style="font-size: 4vw; font-weight: 300; color: white; margin-left: 20px;">Registro</p>
+        <div class='container-fluid' style="width: auto; position: relative;">
             <app-register-form></app-register-form>
         </div>
     </div>
 
-    <div class="row" style="margin-right: 50px; max-width: 50%;">
-      <div class="column" style='margin-left: 50px; position: absolute;'><p style="font-size: 3vw;">Únete a esta nueva experiencia</p>
-          <div class='container' style="width: auto;">
+    <div class="row" style="margin-left: 50px; margin-right: 50px; max-width: 50%;">
+      <div class="column" style='margin-left: 50px; position: fixed;'>
+          <div class='container' style="max-width: 70%; width: auto;">
               <app-register-grid></app-register-grid>
           </div>
       </div>
     </div>
 </div>
+
+<ul class="login-bg-list clearfix">
+    <li *ngFor="let list of bgList" [ngClass]="{ 'active': list.active }">
+      <a href="javascript:;" (click)="changeBg(list)" [ngStyle]="{ 'background-image': 'url(' + list.bg + ')' }"></a>
+    </li>
+</ul>

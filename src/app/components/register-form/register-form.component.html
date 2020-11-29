@@ -1,35 +1,36 @@
 <form>
     <div class="form-group">
-        <label for="exampleInputUserName1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Nombre de Usuario:</label>
-        <input type="text" class="form-control" id="exampleInputUserName1" aria-describedby="emailHelp" style="margin-left: 2%; max-width: 95%;">
-        <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 2vw; font-weight: lighter; color: white">Este será el nombre que verás en tu perfil.</small>
+        <!--><label for="exampleInputUserName1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Nombre de Usuario:</label><!-->
+        <input type="text" class="form-control" placeholder="Nombre de Usuario" id="exampleInputUserName1" aria-describedby="emailHelp" style="margin-left: 2%; width: 100%;">
+        <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 1vw; font-weight: lighter; color: white">Este será el nombre que verás en tu perfil.</small>
       </div>
     <div class="form-group">
-      <label for="exampleInputEmail1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Dirección de Correo:</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"style="margin-left: 2%; max-width: 95%;">
-      <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 2vw; font-weight: lighter; color: white">No compartiremos tu email con terceros.</small>
+      <!--><label for="exampleInputEmail1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Dirección de Correo:</label><!-->
+      <input type="email" class="form-control" placeholder="Dirección de Correo" id="exampleInputEmail1" aria-describedby="emailHelp"style="margin-left: 2%; max-width: 100%;">
+      <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 1vw; font-weight: lighter; color: white">No compartiremos tu email con terceros.</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Contraseña:</label>
-      <input type="password" class="form-control" id="exampleInputPassword1"style="margin-left: 2%; max-width: 95%;">
-      <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 2vw; font-weight: lighter; color: white">No compartas tu contraseña con nadie.</small>
+      <!--><label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Contraseña:</label><!-->
+      <input type="password" class="form-control" placeholder="Contraseña" id="exampleInputPassword1"style="margin-left: 2%; max-width: 100%;">
+      <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 1vw; font-weight: lighter; color: white">No compartas tu contraseña con nadie.</small>
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Repetir Contraseña:</label>
-        <input type="password" class="form-control" id="exampleInputPassword2" style="margin-left: 2%; max-width: 95%;">
+        <!--><label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Repetir Contraseña:</label><!-->
+        <input type="password" class="form-control" placeholder="Repetir Contraseña" id="exampleInputPassword2" style="margin-left: 2%; max-width: 100%;">
       </div>
     <!--><div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1" style="margin-left: 10px">
-      <label class="form-check-label" for="exampleCheck1" style="margin-left: 30px; color: white">Do you are have stupid?</label>
+      <label class="form-check-label" for="exampleCheck1" style="margin-left: 30px; color: white"> Is this a checkbox?</label>
     </div><!-->
     <div class="form-group">
-      <div class="container">
-        <a 
+      <div class="login-buttons">
+        <button 
+        type="submit"
         routerLink="/login"
-        class="btn btn-secondary mr-4 active"
-        style="margin-right:auto;"
+        class="btn btn-success btn-block btn-lg"
+        style="margin-left:5px; max-width: 100%;"
         role="button">
         Registrarse
-        </a>
+      </button>
       </div></div><!--><button type="submit" class="btn" style="margin-left: 69%; margin-bottom: 10px; background-color: gray ; color: white;">Registrarse</button><!-->
   </form>

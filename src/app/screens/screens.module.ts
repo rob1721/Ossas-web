@@ -30,7 +30,8 @@ import { LoginGridComponent } from '../components/login-grid/login-grid.componen
 import { RegisterFormComponent} from 'src/app/components/register-form/register-form.component';
 import { RegisterGridComponent} from 'src/app/components/register-grid/register-grid.component';
 import { FormsModule } from '@angular/forms';
-
+import { UserInfoComponent } from 'src/app/components/user-info/user-info.component';
+import { RecentActivityComponent} from 'src/app/components/recent-activity/recent-activity.component';
 
 
 
@@ -62,6 +63,8 @@ import { FormsModule } from '@angular/forms';
     LogoComponent,
     PagenotfoundComponent,
     LoginGridComponent,
+    UserInfoComponent,
+    RecentActivityComponent,
 
   ],
   imports: [
@@ -69,6 +72,6 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     SharedModule,
     FormsModule
-  ]
+  ],
 })
 export class ScreensModule { }

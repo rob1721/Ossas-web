@@ -20,25 +20,67 @@
   <!-- end brand -->
   <!-- begin login-content -->
   <div class="login-content">
-      <form #f="ngForm" (ngSubmit)="formSubmit(f)" class="margin-bottom-0">
-          <div class="form-group m-b-20">
-              <input type="text" class="form-control form-control-lg" placeholder="Dirección de correo" required />
-          </div>
-          <div class="form-group m-b-20">
-              <input type="password" class="form-control form-control-lg" placeholder="Contraseña" required />
-          </div>
-          <!-- <div class="checkbox checkbox-css m-b-20">
-              <input type="checkbox" id="remember_checkbox" />
-              <label for="remember_checkbox">
-                Remember Me
-              </label>
-          </div> -->
-          <div class="login-buttons">
-              <button type="submit" class="btn btn-success btn-block btn-lg">Iniciar sesión</button>
-          </div>
-          <div class="m-t-20">
+    <form [formGroup]="formulario" class="margin-bottom-0">
+        <div class="form-group m-b-15">
+            <input type="text" formControlName="email" 
+            [(ngModel)]="email" 
+            class="form-control form-control-lg" 
+            placeholder="Dirección Email" required
+            [ngClass]="(formulario.get('email').dirty) && 
+                        formulario.get('email').hasError('required') ? 'is-invalid':''  
+                        || formulario.get('email').hasError('pattern') ? 'is-invalid':''
+                        ||((formulario.get('email').touched || formulario.get('email').dirty)
+                        && !formulario.get('email').invalid) ? 'is-valid':''
+                        "/>
+            <div class="invalid-feedback">
+                {{
+                    formulario.get('email').hasError('required')
+                    ? 'Email es requerido'
+                    :'' 
+                }}
+                {{
+                    formulario.get('email').hasError('pattern')
+                    ? 'Email ingresado no es valido'
+                    :'' 
+                }}
+            </div>
+        </div>
+        <div class="form-group m-b-15">
+            <input type="password" formControlName="password" [(ngModel)]="password" 
+            class="form-control form-control-lg" placeholder="Contraseña" required
+            [ngClass]="(formulario.get('password').dirty ) && 
+                        formulario.get('password').hasError('required') ? 'is-invalid':'' 
+                        || formulario.get('password').hasError('minlength') ? 'is-invalid':''
+                        ||((formulario.get('password').touched || formulario.get('password').dirty)
+                        && !formulario.get('password').invalid) ? 'is-valid':''
+                        "/>
+            <div class="invalid-feedback">
+                {{
+                    formulario.get('password').hasError('minlength')
+                    ? "Largo de la contraseña debe tener minimo 6 caracteres"
+                    :'' 
+                }}
+                {{
+                    formulario.get('password').hasError('required')
+                    ? 'Contraseña es requerida'
+                    :'' 
+                }}
+                
+            </div>
+        </div>
+        <!-- <div class="checkbox checkbox-css m-b-30">
+          <input type="checkbox" id="remember_me_checkbox" value="" />
+          <label for="remember_me_checkbox">
+            Recordarme
+          </label>
+        </div> -->
+        <div class="login-buttons">
+            <button type="submit" [disabled]="!formulario.valid" (click)="formSubmit()" class="btn btn-success btn-block btn-lg">Iniciar sesión</button>
+        </div>
+        <div class="m-t-20 m-b-40 p-b-40 text-inverse">
             Si no tienes una cuenta todavia, has click <a routerLink="/register" class="text-success">aquí</a> para registrarte.
-          </div>
+        </div>
+        <hr />
       </form>
   </div>
   <!-- end login-content -->

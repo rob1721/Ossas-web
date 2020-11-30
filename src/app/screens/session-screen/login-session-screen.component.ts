@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login-session-screen',
@@ -9,8 +10,10 @@ import { Router } from '@angular/router';
 })
 export class LoginSessionScreenComponent implements OnInit {
 
-  
-  constructor(private router: Router) { }
+  formulario: FormGroup;
+  email: string;
+  password: string;
+  constructor(private router: Router,  private formBuilder: FormBuilder) { }
 
   bg;
   bgList;
@@ -25,20 +28,37 @@ export class LoginSessionScreenComponent implements OnInit {
       { 'bg': '../../../assets/images/h.jpg' },
       { 'bg': '../../../assets/images/j.jpg' }
     ];
+
+    this.formulario = this.formBuilder.group({
+      email: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ])
+      ),
+      password: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(6)
+        ])
+      )
+      });
   }
 
   public changeBg(list) {
     this.bg = list.bg;
     list.active = true;
 
-    for (let bList of this.bgList) {
-			if (bList != list) {
+    for (const bList of this.bgList) {
+		  if (bList !== list) {
 				bList.active = false;
 			}
 		}
   }
 
-  public formSubmit(f: NgForm) {
+  public formSubmit() {
     this.router.navigate(['/home']);
   }
 

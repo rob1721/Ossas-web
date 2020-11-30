@@ -2,9 +2,9 @@
 
 <div class="container-fluid">
     <div class="row mt-3">
-
-        <div class="col-lg-4">
-            <div class="col-lg-12 mt-2"> <!--hay un pequeño descuadre..pensar este valor-->
+        <app-user-info></app-user-info>
+        <!--<div class="col-lg-4">
+            <div class="col-lg-12 mt-2"> <!--hay un pequeño descuadre..pensar este valor
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
@@ -35,9 +35,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
-        <div class="col-lg-8 mt-3">
+        <div class="col-lg-8 mt-3 ml-3">
                 <div class="col mb-2">
                     <div class="btn btn-primary" style="margin-right: 10px;" *ngIf="postSelected" (click)="editingPost(postSelected, postSelected.id)">Editar Imagen</div>
                     <div class="btn btn-primary" *ngIf="postSelected" (click)="deletingPost(postSelected, postSelected.id)">Eliminar Imagen</div>
@@ -46,10 +46,11 @@
         
             <div class="card-columns">
                 <div class="card" *ngFor="let post of posts" (click)="selectPost(post, post.id)">
-                    <img [src]="post.image" class="card-img-top" alt="Imagen hardcodeada">
+                    <img [src]="post.image" class="card-img-top" alt="Imagen hardcodeada" style="max-height: 350px;">
                 </div>
             </div>
         </div>
        
     </div>
+    <app-recent-activity></app-recent-activity>
 </div>

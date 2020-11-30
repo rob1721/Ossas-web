@@ -1,36 +1,137 @@
-<form>
-    <div class="form-group">
-        <!--><label for="exampleInputUserName1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Nombre de Usuario:</label><!-->
-        <input type="text" class="form-control" placeholder="Nombre de Usuario" id="exampleInputUserName1" aria-describedby="emailHelp" style="margin-left: 2%; width: 100%;">
-        <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 1vw; font-weight: lighter; color: white">Este será el nombre que verás en tu perfil.</small>
+<div class="register-content">
+  <form [formGroup]="formulario" class="margin-bottom-0">
+      <label class="control-label" style="color: white;">Nombre <span class="text-danger">*</span></label>
+      <div class="row m-b-15">
+          <div class="col-md-12">
+              <input type="text" formControlName="nombre" [(ngModel)]="nombre" class="form-control" 
+              placeholder="Nombre" 
+              required
+              [ngClass]="(formulario.get('nombre').dirty) && 
+                      formulario.get('nombre').hasError('required') ? 'is-invalid':''  
+                      || formulario.get('nombre').hasError('pattern') ? 'is-invalid':''
+                      || formulario.get('nombre').hasError('maxlength') ? 'is-invalid':''
+                      ||((formulario.get('nombre').touched || formulario.get('nombre').dirty)
+                      && !formulario.get('nombre').invalid) ? 'is-valid':''
+              "/>
+              <div class="invalid-feedback">
+                  {{
+                      formulario.get('nombre').hasError('required')
+                      ? 'Nombre es requerido'
+                      :'' 
+                  }}
+                  {{
+                      formulario.get('nombre').hasError('pattern')
+                      ? 'Nombre ingresado no es valido'
+                      :'' 
+                  }}
+                  {{
+                      formulario.get('nombre').hasError('maxlength')
+                      ? 'Nombre ingresado debe tener menos de 30 letras'
+                      :'' 
+                  }}
+              </div>
+          </div>
+          
       </div>
-    <div class="form-group">
-      <!--><label for="exampleInputEmail1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Dirección de Correo:</label><!-->
-      <input type="email" class="form-control" placeholder="Dirección de Correo" id="exampleInputEmail1" aria-describedby="emailHelp"style="margin-left: 2%; max-width: 100%;">
-      <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 1vw; font-weight: lighter; color: white">No compartiremos tu email con terceros.</small>
-    </div>
-    <div class="form-group">
-      <!--><label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Contraseña:</label><!-->
-      <input type="password" class="form-control" placeholder="Contraseña" id="exampleInputPassword1"style="margin-left: 2%; max-width: 100%;">
-      <small id="emailHelp" class="form-text" style="margin-left: 10px; font-size: 1vw; font-weight: lighter; color: white">No compartas tu contraseña con nadie.</small>
-    </div>
-    <div class="form-group">
-        <!--><label for="exampleInputPassword1" style="margin-left: 10px; font-size: 3vw; font-weight: 200; color: white">Repetir Contraseña:</label><!-->
-        <input type="password" class="form-control" placeholder="Repetir Contraseña" id="exampleInputPassword2" style="margin-left: 2%; max-width: 100%;">
+      <label class="control-label" style="color: white;">Email <span class="text-danger">*</span></label>
+      <div class="row m-b-15">
+          <div class="col-md-12">
+              <input type="text" formControlName="email" [(ngModel)]="email" 
+              class="form-control" placeholder="Direccion Email" 
+              required
+              [ngClass]="(formulario.get('email').dirty) && 
+                      formulario.get('email').hasError('required') ? 'is-invalid':''  
+                      || formulario.get('email').hasError('pattern') ? 'is-invalid':''
+                      ||((formulario.get('email').touched || formulario.get('email').dirty)
+                      && !formulario.get('email').invalid) ? 'is-valid':''
+              "/>
+              <div class="invalid-feedback">
+                  {{
+                      formulario.get('email').hasError('required')
+                      ? 'Email es requerido'
+                      :'' 
+                  }}
+                  {{
+                      formulario.get('email').hasError('pattern')
+                      ? 'Email ingresado no es valido'
+                      :'' 
+                  }}
+              </div>
+          </div>
       </div>
-    <!--><div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" style="margin-left: 10px">
-      <label class="form-check-label" for="exampleCheck1" style="margin-left: 30px; color: white"> Is this a checkbox?</label>
-    </div><!-->
-    <div class="form-group">
-      <div class="login-buttons">
-        <button 
-        type="submit"
-        routerLink="/login"
-        class="btn btn-success btn-block btn-lg"
-        style="margin-left:5px; max-width: 100%;"
-        role="button">
-        Registrarse
-      </button>
-      </div></div><!--><button type="submit" class="btn" style="margin-left: 69%; margin-bottom: 10px; background-color: gray ; color: white;">Registrarse</button><!-->
+      <label class="control-label" style="color: white;">Contraseña <span class="text-danger">*</span></label>
+      <div class="row m-b-15">
+          <div class="col-md-12">
+              <input type="password" formControlName="pass" [(ngModel)]="pass" 
+              class="form-control" placeholder="Contraseña" 
+              required 
+              [ngClass]="(formulario.get('pass').dirty) && 
+                      formulario.get('pass').hasError('required') ? 'is-invalid':''  
+                      || formulario.get('pass').hasError('minlength') ? 'is-invalid':''
+                      ||((formulario.get('pass').touched || formulario.get('pass').dirty)
+                      && !formulario.get('pass').invalid) ? 'is-valid':''
+              "/>
+              <div class="invalid-feedback">
+                  {{
+                      formulario.get('pass').hasError('required')
+                      ? 'Contraseña es requerida'
+                      :'' 
+                  }}
+                  {{
+                      formulario.get('pass').hasError('minlength')
+                      ? 'Contraseña debe tener minimo 6 caracteres'
+                      :'' 
+                  }}
+              </div>
+          </div>
+      </div>
+      <label class="control-label" style="color: white;">Confirmar Contraseña <span class="text-danger">*</span></label>
+      <div class="row m-b-15">
+          <div class="col-md-12">
+              <input type="password" formControlName="confirmPass" [(ngModel)]="confirmPass" 
+              class="form-control" placeholder="Confirmar Contraseña" 
+              required 
+              [ngClass]="(formulario.get('confirmPass').dirty) && 
+                      formulario.get('confirmPass').hasError('required') ? 'is-invalid':''
+                      || (formulario.get('confirmPass').value !== formulario.get('pass').value) ? 'is-invalid':''
+                      ||((formulario.get('confirmPass').touched || formulario.get('confirmPass').dirty)
+                      && !formulario.get('confirmPass').invalid) ? 'is-valid':''
+              "/>
+              <div class="invalid-feedback">
+                  {{
+                      formulario.get('confirmPass').hasError('required')
+                      ? 'Confirmar contraseña es requerida\n'
+                      :'' 
+                  }}
+                  <br>
+                  {{
+                      (formulario.get('confirmPass').value !== formulario.get('pass').value)
+                      ? 'Confirmar contraseña es diferente a la contraseña ingresada'
+                      :'' 
+                  }}
+              </div>
+          </div>
+      </div>
+     <!--  <div class="checkbox checkbox-css m-b-30">
+          <div class="checkbox checkbox-css m-b-30">
+              <input type="checkbox" id="agreement_checkbox" value="">
+              <label for="agreement_checkbox">
+            By clicking Sign Up, you agree to our <a href="javascript:;">Terms</a> and that you have read our <a href="javascript:;">Data Policy</a>, including our <a href="javascript:;">Cookie Use</a>.
+          </label>
+          </div>
+      </div> -->
+      <div class="register-buttons">
+          <button type="submit" [disabled]="!formulario.valid" (click)="validarDatos()" class="btn btn-success btn-block btn-lg">Registrarse</button>
+      </div>
+      <div class="m-t-20 m-b-40 p-b-40 text-inverse">
+        <p style="color: white;">
+          Si ya posees una cuenta has click <a routerLink="/Login">aqui</a> para iniciar sesion.
+        </p>
+          
+      </div>
+      <hr />
+      <!-- <p class="text-center">
+          &copy; Color Admin All Right Reserved 2018
+      </p> -->
   </form>
+</div>

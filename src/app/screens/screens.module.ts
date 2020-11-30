@@ -29,7 +29,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginGridComponent } from '../components/login-grid/login-grid.component';
 import { RegisterFormComponent} from 'src/app/components/register-form/register-form.component';
 import { RegisterGridComponent} from 'src/app/components/register-grid/register-grid.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from 'src/app/components/user-info/user-info.component';
 import { RecentActivityComponent} from 'src/app/components/recent-activity/recent-activity.component';
 
@@ -71,7 +71,8 @@ import { RecentActivityComponent} from 'src/app/components/recent-activity/recen
     CommonModule,
     AppRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class ScreensModule { }

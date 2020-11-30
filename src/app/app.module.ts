@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventService } from './core/services/event/event.service';
 import { CoreModule } from './core/core.module';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     SharedModule,
     ScreensModule,
-    CoreModule
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

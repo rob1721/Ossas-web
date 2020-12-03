@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-login-session-screen',
@@ -13,7 +14,12 @@ export class LoginSessionScreenComponent implements OnInit {
   formulario: FormGroup;
   email: string;
   password: string;
-  constructor(private router: Router,  private formBuilder: FormBuilder) { }
+
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) { }
 
   bg;
   bgList;
@@ -52,14 +58,18 @@ export class LoginSessionScreenComponent implements OnInit {
     list.active = true;
 
     for (const bList of this.bgList) {
-		  if (bList !== list) {
-				bList.active = false;
-			}
-		}
+      if (bList !== list) {
+        bList.active = false;
+      }
+    }
   }
 
   public formSubmit() {
     this.router.navigate(['/home']);
+  }
+
+  public testing() {
+    console.log(this.userService.getAllUsers2());
   }
 
 }

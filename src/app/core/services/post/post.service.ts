@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Post } from '../../models/post.model';
 import { HttpService } from '../http/http.service';
+import { HttpClient } from '@angular/common/http';
 import { POSTS } from './posts.const';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,9 @@ export class PostService {
   private postSubject: Subject<Post>;
 
   constructor(
-    private httpService: HttpService
+    private httpService: HttpService,
+    // private httlClient: HttpClient,
+    // private posting: Post
   ) {
     this.posts = POSTS;
     this.postSubject = new Subject();
@@ -44,8 +48,32 @@ export class PostService {
   public getPost2(id: string): Observable<Post>{
     return this.httpService.get<Post>(`/post/${id}`);
   }
+  // post json method, with no FILE
   public postPost2(post: Post): Observable<Post>{
     return this.httpService.post<Post>('/post/', post);
+  }
+  // post ts method, with FILE
+  /**
+   *
+   * @param post
+   * id?: string;
+   * image: string; // path
+   * title: string;
+   * likes?: Like[];
+   * category?: Category[];
+   * comments?: Comment[];
+   * date: Date;
+   * description?: string;
+   */
+  public postPost3(title: string, description: string, photo: File) {
+    const fd = new FormData();
+    fd.append('title', title);
+    fd.append('description', description);
+    fd.append('image', photo);
+    /*this.posting.title = title;
+    this.posting.description = description;
+    this.posting.image = photo;*/
+    return this.httpService.post('/post/', fd);
   }
   public updatePost2(postId: string, post: Partial<Post>): Observable<Post>{
     return this.httpService.patch<Post>(`/post/${postId}`, post);

@@ -1,0 +1,30 @@
+<div class="col-lg-4 mx-auto">
+  
+  <div class="card">
+    <div class="card-header">
+      <h3>Subir un Post</h3>
+    </div>
+    <div class="card-body">
+      <!--<form (submit)="uploadPhoto(title, description)">-->
+      <form (submit)="uploadFile(title.value, description.value)">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Titulo de tu Post" required #title>
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" rows="2" placeholder="Descripción de tu Post" required #description></textarea>
+        </div>
+
+        <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+        <img [src]="photoSelected || 'assets/images/no-image.png'" class="img-fluid" alt="No imagen" (click)="photoInput.click()">
+
+        <button class="btn btn-primary btn-block mt-2">
+          Agregar Post
+        </button>
+      </form>
+    </div>
+  </div>
+  <Button class="btn btn-primary" (click)="testing()">Testing</Button>
+</div>
+
+

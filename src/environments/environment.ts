@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:16000/api'
+  BASE_URL: 'http://localhost:16000/api',
+  firebaseConfig : {
+    apiKey: 'AIzaSyBtMiuDzLFZsstOYOUwhEcpz5RzPPMTWNE',
+    authDomain: 'ossas-8d93e.firebaseapp.com',
+    databaseURL: 'https://ossas-8d93e.firebaseio.com',
+    projectId: 'ossas-8d93e',
+    storageBucket: 'ossas-8d93e.appspot.com',
+    messagingSenderId: '91554389798',
+    appId: '1:91554389798:web:267aae5f43267ebb6b6be7'
+  },
 };
 
 /*

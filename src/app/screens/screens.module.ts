@@ -33,6 +33,12 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from 'src/app/components/user-info/user-info.component';
 import { RecentActivityComponent} from 'src/app/components/recent-activity/recent-activity.component';
 
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
+
+import { AddPhotoScreenComponent } from './add-photo-screen/add-photo-screen.component';
+import { PhotoFormComponent } from '.././components/photo-form/photo-form.component';
+import { PhotoPreviewComponent } from '.././components/photo-preview/photo-preview.component';
+import { PhotoListComponent } from '.././components/photo-list/photo-list.component';
 
 
 @NgModule({
@@ -65,7 +71,12 @@ import { RecentActivityComponent} from 'src/app/components/recent-activity/recen
     LoginGridComponent,
     UserInfoComponent,
     RecentActivityComponent,
+    NavigationComponent,
 
+    AddPhotoScreenComponent,
+    PhotoFormComponent,
+    PhotoPreviewComponent,
+    PhotoListComponent
   ],
   imports: [
     CommonModule,

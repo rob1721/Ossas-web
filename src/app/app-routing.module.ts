@@ -10,6 +10,7 @@ import { ProfileScreenComponent } from './screens/profile-screen/profile-screen.
 import { MyimagesScreenComponent } from './screens/myimages-screen/myimages-screen.component';
 
 import { PagenotfoundComponent } from './screens/pagenotfound/pagenotfound.component';
+import { AddPhotoScreenComponent } from './screens/add-photo-screen/add-photo-screen.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterScreenComponent
+  },
+  {
+    path: 'home/profile/addimage',
+    component: AddPhotoScreenComponent
   },
   {
     path: 'home/profile/:id',

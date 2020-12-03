@@ -11,6 +11,12 @@ import { EventService } from './core/services/event/event.service';
 import { CoreModule } from './core/core.module';
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 
+// Angular services
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +29,9 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
     ScreensModule,
     CoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

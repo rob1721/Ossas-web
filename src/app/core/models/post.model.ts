@@ -4,11 +4,11 @@ import { Like } from './like.model';
 
 export interface Post {
     id?: string;
-    image: string;
+    image: string; // path
     title: string;
     likes?: Like[];
     category?: Category[];
     comments?: Comment[];
-    date: Date;
+    date?: Date;
     description?: string;
 }

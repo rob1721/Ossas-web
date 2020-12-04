@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Photo } from 'src/app/core/models/photo.model';
 import { Post } from 'src/app/core/models/post.model';
 import { User } from 'src/app/core/models/user.model';
@@ -16,10 +17,12 @@ export class ProfileScreenComponent implements OnInit {
 
 
   public user: User;
+  public user$: Observable<User>;
   public posts: Post[];
   public photoSelected: Photo;
 
   public photos: Photo[];
+  public photos$: Observable<Photo[]>;
   public photo: Photo;
   public users: User[];
   public uid: string;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Like } from 'src/app/core/models/like.model';
 import { Photo } from 'src/app/core/models/photo.model';
 import { Post } from 'src/app/core/models/post.model';
@@ -17,6 +18,7 @@ export class PhotoScreenComponent implements OnInit {
 
 
   public photo: Photo;
+  public photo$: Observable<Photo>;
   public users2: User[];
   public user2: User;
 

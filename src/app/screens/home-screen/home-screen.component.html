@@ -3,12 +3,16 @@
 <button class="btn btn-primary" (click)="gettingAllPhotos()">ALL PHOTOS</button>
 <button class="btn btn-primary" (click)="gettingAllUsers()">ALL USERS</button>
 <div class="container-fluid">
-    <div class="card-columns" >
-        <div *ngFor="let user of users">
-            <div class="card" *ngFor="let photo of gettingPhotoByUser(user)" [routerLink]="[ '/photo', photo._id ]">
-                <img [src]="photo.imagePath" class="card-img-top">
+    <div class="card-columns" *ngIf="photos$ | async; let photos">
+        <!--<div *ngFor="let user of users">-->
+            <!--<div class="card content_img" *ngFor="let photo of photos" [routerLink]="[ '/photo', photo._id ]">
+                <img [src]="photo.imagePath" class="card-img-top" alt="OssasWeb">
+                <div>{{ photo.title }}</div>
+            </div>-->
+            <div class="card" *ngFor="let photo of photos" [routerLink]="[ '/photo', photo._id ]">
+                <img [src]="photo.imagePath" class="card-img-top" alt="OssasWeb">
             </div>
-        </div>
+        <!--</div>-->
         
     </div>
 </div>

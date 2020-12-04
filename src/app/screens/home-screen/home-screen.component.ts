@@ -21,6 +21,7 @@ export class HomeScreenComponent implements OnInit {
 
   public users: User[];
   public photos: Photo[];
+  public photos$: Observable<Photo[]>;
   public userPhotos: Photo[];
   public photo: Photo;
 
@@ -33,12 +34,8 @@ export class HomeScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getAllPosts2()
-      .subscribe((qwe) => {
-        this.asdasd = qwe;
-        console.log(this.asdasd);
-      }); // cuando se obtengan las URL quitar el subscribe y agregar el | async en el html card-colums *ngIf="posts$ | async; let posts"
-    this.fetchPhotos();
+    // cuando se obtengan las URL quitar el subscribe y agregar el | async en el html card-colums *ngIf="posts$ | async; let posts"
+    this.gettingAllPhotos();
     this.gettingAllUsers();
   }
 
@@ -51,10 +48,10 @@ export class HomeScreenComponent implements OnInit {
   }
 
   gettingAllPhotos() {
-    this.photoService.getPhotos()
-      .subscribe(rta => {
+    this.photos$ = this.photoService.getPhotos();
+      /*.subscribe(rta => {
         this.fetchPhotos();
-      });
+      });*/
   }
 
   gettingPhotoByUser(user: User) {
@@ -63,13 +60,6 @@ export class HomeScreenComponent implements OnInit {
       return user.photos;
     }
     return null;
-  }
-
-  gettingPhotosByUsers(users: User[]) {
-    users.forEach(user => {
-      this.photos = user.photos;
-      console.log(this.photos);
-    });
   }
 
   gettingAllUsers() {

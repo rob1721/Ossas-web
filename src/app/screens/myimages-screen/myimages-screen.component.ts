@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Photo } from 'src/app/core/models/photo.model';
-import { Post } from 'src/app/core/models/post.model';
 import { User } from 'src/app/core/models/user.model';
 import { PhotoService } from 'src/app/core/services/photo/photo.service';
 import { UserService } from 'src/app/core/services/user/user.service';
-import { USERLOGED } from 'src/app/core/services/user/users.const';
 
 @Component({
   selector: 'app-myimages-screen',
@@ -14,10 +13,11 @@ import { USERLOGED } from 'src/app/core/services/user/users.const';
 export class MyimagesScreenComponent implements OnInit {
 
   public user: User;
-  public postSelected: Post;
+  public user$: Observable<User>;
   public uid: string;
 
   public photos: Photo[];
+  public photos$: Observable<Photo[]>;
   public users: User[];
 
   constructor(
@@ -34,26 +34,15 @@ export class MyimagesScreenComponent implements OnInit {
     this.getUser(this.uid);
   }
 
-  fetchPhotos() {
+  /*fetchPhotos() {
     this.photoService.getPhotos()
       .subscribe((photos: Photo[]) => {
         this.photos = photos;
       });
-  }
+  }*/
 
   getUser(id: string) {
-    this.userservice.getUser2(id)
-      .subscribe((user: User) => {
-        this.user = user;
-        console.log(this.user);
-        this.photos = this.user.photos;
-      });
-  }
-
-  selectPost(post: Post, id: string) {
-    this.postSelected = post;
-    console.log('Haz Seleccionado un post');
-    console.log(this.postSelected);
+    this.user$ = this.userservice.getUser2(id);
   }
 
   selectPhoto(photo: Photo){

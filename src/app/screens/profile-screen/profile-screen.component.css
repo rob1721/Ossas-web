@@ -1,0 +1,35 @@
+/* Parent Container */
+/*.card{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+   }*/
+   
+   /* Child Text Container */
+   .card div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    color: white;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear; 
+    transition: visibility 0s, opacity 0.5s linear;
+   }
+   
+   /* Hover on Parent Container */
+   .card:hover{
+    cursor: pointer;
+   }
+   
+   .card:hover div{
+    width: 100px;
+    padding: 8px 15px;
+    visibility: visible;
+    opacity: 0.7; 
+   }

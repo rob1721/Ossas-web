@@ -2,8 +2,11 @@
 
 <div class="container-fluid">
     <div class="row mt-3">
-        <div class="column-lg">
-            <app-user-info></app-user-info>
+        <div class="column">
+            <app-user-info
+                [user]="user">    
+            </app-user-info>
+            <app-recent-activity></app-recent-activity>
         </div>
        
         <!--<div class="col-lg-4">
@@ -46,19 +49,22 @@
                     <div class="btn btn-primary" style="margin-right: 10px;" [routerLink]="[ '/home/profile/addimage' ]" routerLinkActive="active">
                         Agregar Imagen
                     </div>
-                    <div class="btn btn-primary" style="margin-right: 10px;" *ngIf="postSelected" (click)="editingPost(postSelected, postSelected.id)">Editar Imagen</div>
-                    <div class="btn btn-primary" *ngIf="postSelected" (click)="deletingPost(postSelected, postSelected.id)">Eliminar Imagen</div>
+                    <div class="btn btn-primary" style="margin-right: 10px;" *ngIf="photoSelected" (click)="editingPost(photoSelected, photoSelected._id)">Editar Imagen</div>
+                    <div class="btn btn-primary" *ngIf="photoSelected" (click)="deletingPost(photoSelected, photoSelected._id)">Eliminar Imagen</div>
                 </div>
                 
         
             <div class="row ml-1 mr-1">
-                <div class="view overlay zoom" *ngFor="let post of posts" (click)="selectPost(post, post.id)">
-                    <img [src]="post.image" class="img-fluid" alt="zoom" style="max-height: 350px;">
+                <div class="card-columns" style="display: flex; flex-wrap: wrap;">
+                    <div class="content_img" *ngFor="let photo of photos" (click)="selectPost(photo, photo._id)">
+                        <img [src]="photo.imagePath" class="card-img-top" alt="Imagen hardcodeada">
+                        <div>{{ photo.title }}</div>
+                    </div>
                 </div>
             </div>
         </div>
-       <button class="btn btn-black" (click)="fetchPhotos()">Testing</button>
+       
     </div>
-    <app-recent-activity></app-recent-activity>
-
+    <button class="btn btn-primary" (click)="gettingAllPhotos()">bringPhotos</button>
+    <button class="btn btn-primary" (click)="gettingAllUsers()">bringUsers</button>
 </div>

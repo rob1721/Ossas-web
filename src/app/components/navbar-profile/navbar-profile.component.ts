@@ -10,15 +10,26 @@ import { UserService } from 'src/app/core/services/user/user.service';
 export class NavbarProfileComponent implements OnInit {
 
   public user: User;
+  public uid: string;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
   ) {
-    this.user = this.userService.getLoged();
   }
+
   ngOnInit(): void {
+    this.uid = '5fbed1a24fca323cd827f238'; // usertesting
+    // this.uid = '5fbefe308b1acf29a4f1e25b'; // wasta
+    // this.uid = '5fc019d9c1231638fc815195'; // panchodon
+    this.getUser(this.uid);
   }
 
-
+  getUser(id: string) {
+    this.userService.getUser2(id)
+      .subscribe((user: User) => {
+        this.user = user;
+        console.log(this.user);
+      });
+  }
 
 }

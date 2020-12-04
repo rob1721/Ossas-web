@@ -1,4 +1,5 @@
 import { Album } from './album.model';
+import { Photo } from './photo.model';
 import { Post } from './post.model';
 
 export interface User {
@@ -8,6 +9,7 @@ export interface User {
     email?: string;
     avatar: string;
     posts?: Post[];
+    photos?: Photo[];
     albums?: Album[];
     following?: User[];
     followers?: User[];

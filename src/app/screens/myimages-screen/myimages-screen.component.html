@@ -1,8 +1,8 @@
 <app-navbar-log></app-navbar-log>
 
 <div class="card-columns mt-1">
-    <div class="card" *ngFor="let post of posts" [routerLink]="[ '/photo', post.id ]">
-        <img [src]="post.image" class="card-img-top" alt="Imagen hardcodeada">
+    <div class="card" *ngFor="let photo of photos" [routerLink]="[ '/photo', photo._id ]">
+        <img [src]="photo.imagePath" class="card-img-top" alt="Imagen hardcodeada">
     </div>
 </div>
 

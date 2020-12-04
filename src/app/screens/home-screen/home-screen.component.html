@@ -1,10 +1,15 @@
 <app-navbar-log></app-navbar-log>
 
+<button class="btn btn-primary" (click)="gettingAllPhotos()">ALL PHOTOS</button>
+<button class="btn btn-primary" (click)="gettingAllUsers()">ALL USERS</button>
 <div class="container-fluid">
     <div class="card-columns" >
-        <div class="card" *ngFor="let post of posts" [routerLink]="[ '/photo', post.id ]">
-            <img [src]="post.image" class="card-img-top" alt="Imagen hardcodeada">
+        <div *ngFor="let user of users">
+            <div class="card" *ngFor="let photo of gettingPhotoByUser(user)" [routerLink]="[ '/photo', photo._id ]">
+                <img [src]="photo.imagePath" class="card-img-top">
+            </div>
         </div>
+        
     </div>
 </div>
 

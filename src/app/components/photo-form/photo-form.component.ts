@@ -25,6 +25,8 @@ export class PhotoFormComponent implements OnInit {
   down: string;
   time: number = Date.now();
 
+  uid: string;
+
   constructor(
     private photoService: PhotoService,
     private storage: AngularFireStorage,
@@ -33,6 +35,9 @@ export class PhotoFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.uid = '5fbed1a24fca323cd827f238'; // usertesting
+    // this.uid = '5fbefe308b1acf29a4f1e25b'; // wasta
+    // this.uid = '5fc019d9c1231638fc815195'; // panchodon
   }
 
   onPhotoSelected(event: HtmlInputEvent): void {
@@ -51,7 +56,7 @@ export class PhotoFormComponent implements OnInit {
     console.log(title);
     console.log(description);
 
-    this.photoService.createPhoto(title, description, this.down)
+    this.photoService.createPhoto(title, description, this.down, this.uid)
       .subscribe(
         res => console.log(res),
         err => console.log(err)
@@ -61,7 +66,7 @@ export class PhotoFormComponent implements OnInit {
 
   uploadFile(title: string, description: string) {
     const file = this.file; // event.target.files[0];
-    const filePath = file.name;
+    const filePath = `${this.time}` + file.name;
     console.log(filePath);
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Like } from 'src/app/core/models/like.model';
+import { Photo } from 'src/app/core/models/photo.model';
 import { Post } from 'src/app/core/models/post.model';
+import { User } from 'src/app/core/models/user.model';
+import { PhotoService } from 'src/app/core/services/photo/photo.service';
 import { PostService } from 'src/app/core/services/post/post.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-photo-screen',
@@ -10,7 +15,11 @@ import { PostService } from 'src/app/core/services/post/post.service';
 })
 export class PhotoScreenComponent implements OnInit {
 
-  public post: Post;
+
+  public photo: Photo;
+  public users2: User[];
+  public user2: User;
+
   public nombres: string[] = [
     'Cristian',
     'Felipe',
@@ -28,14 +37,36 @@ export class PhotoScreenComponent implements OnInit {
   public avatar = 'assets/images/q.jpg';
 
   constructor(
+    private photoService: PhotoService,
+    private userService: UserService,
     private postService: PostService,
     private activatedRoute: ActivatedRoute,
   ) {
     const { id } = this.activatedRoute.snapshot.params; // quiero sacar el atributo id dentro de params
-    this.post = this.postService.getPostById(id);
+    this.gettingPhoto(id);
+
   }
 
   ngOnInit(): void {
   }
+
+  gettingPhoto(id: string) {
+    this.photoService.getPhoto(id)
+      .subscribe((photo: Photo) => {
+        this.photo = photo;
+        console.log(this.photo);
+      });
+  }
+
+  gettingUsers() {
+    this.userService.getAllUsers2()
+      .subscribe((users: User[]) => {
+        this.users2 = users;
+      });
+  }
+
+  /*gettingUser(id: string) {
+    return this.users2.find((user: User) => )
+  }*/
 
 }

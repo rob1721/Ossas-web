@@ -4,16 +4,20 @@ import { Observable } from 'rxjs';
 import { Post } from 'src/app/core/models/post.model';
 import { PostService } from 'src/app/core/services/post/post.service';
 
+
+
 @Component({
   selector: 'app-home-screen',
   templateUrl: './home-screen.component.html',
   styleUrls: ['./home-screen.component.less']
 })
+
 export class HomeScreenComponent implements OnInit {
 
   public posts: Post[];
   public posts$: Observable<Post[]>;
   public asdasd: Post[];
+  public myVar = localStorage.getItem('currentUser');
 
   constructor(
     private postService: PostService,

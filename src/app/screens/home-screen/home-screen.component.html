@@ -1,5 +1,7 @@
-<app-navbar-log></app-navbar-log>
 
+
+<app-navbar-log></app-navbar-log>
+<p style="font-size: larger; font-weight: bolder; text-align: center;"> Bienvenido {{ myVar }} </p>
 <div class="container-fluid">
     <div class="card-columns" >
         <div class="card" *ngFor="let post of posts" [routerLink]="[ '/photo', post.id ]">

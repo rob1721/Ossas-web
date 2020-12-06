@@ -10,15 +10,15 @@ import { UserService } from 'src/app/core/services/user/user.service';
 @Component({
   selector: 'app-profile-screen',
   templateUrl: './profile-screen.component.html',
-  styleUrls: ['./profile-screen.component.css']
+  styleUrls: ['./profile-screen.component.less']
 })
 export class ProfileScreenComponent implements OnInit {
   public editUserForm: FormGroup;
 
+  public userLogged: User;
 
   public user: User;
   public user$: Observable<User>;
-  public posts: Post[];
   public photoSelected: Photo;
 
   public photos: Photo[];
@@ -31,24 +31,18 @@ export class ProfileScreenComponent implements OnInit {
     public photoService: PhotoService,
     public userService: UserService
   ) {
-    this.user = this.userService.getLoged();
-    this.posts = this.user.posts;
   }
 
   ngOnInit(): void {
-    // this.fetchPhotos();
-    this.uid = '5fbed1a24fca323cd827f238'; // usertesting
-    // this.uid = '5fbefe308b1acf29a4f1e25b'; // wasta
-    // this.uid = '5fc019d9c1231638fc815195'; // panchodon
-    this.getUser(this.uid);
+    this.getUser(localStorage.getItem('currentUser'));
   }
 
   getUser(id: string) {
     this.userService.getUser2(id)
       .subscribe((user: User) => {
-        this.user = user;
-        console.log(this.user);
-        this.photos = this.user.photos;
+        this.userLogged = user;
+        console.log(this.userLogged);
+        this.photos = this.userLogged.photos;
         console.log(this.photos);
       });
   }
@@ -66,11 +60,6 @@ export class ProfileScreenComponent implements OnInit {
       .subscribe(rta => {
         this.fetchPhotos();
       });
-    this.photoService.getPhoto('5fc8148868bc0125204860bb')
-      .subscribe((photo: Photo) => {
-        this.photo = photo;
-        console.log(this.photo);
-      });
   }
 
   gettingAllUsers() { // para haber agregado a followers/following
@@ -79,40 +68,40 @@ export class ProfileScreenComponent implements OnInit {
         this.users = users;
         console.log(this.users);
       });
-    this.photoService.getPhoto('5fc8148868bc0125204860bb')
-      .subscribe((photo: Photo) => {
-        this.photo = photo;
-        console.log(this.photo);
-      });
   }
 
-  addPost() {
-    console.log('Adding Post');
-  }
-  selectPost(photo: Photo, id: string) {
+  selectPhoto(photo: Photo, id: string) {
     this.photoSelected = photo;
     console.log('Haz Seleccionado una Photo');
     console.log(this.photoSelected);
   }
 
-  editingPost(post: Photo, id: string) {
+  editingPhoto(photo: Photo, id: string) {
     // llamar al servicio y editar!
-    console.log('Deseas Editar un post!');
-    if (post && id) {
-      console.log(post);
+    console.log('Deseas Editar un photo!');
+    if (photo && id) {
+      console.log(photo);
     } else {
-      console.log('No haz seleccionado un post');
+      console.log('No haz seleccionado un photo');
     }
   }
 
-  deletingPost(post: Photo, id: string) {
+  deletingPhoto(photo: Photo, id: string) {
     // llamar al servicio y eliminar desde allí
-    console.log('Deseas Eliminar un post');
-    if (post && id) {
-      console.log(post);
+    console.log('Deseas Eliminar un photo');
+    if (photo && id) {
+      console.log(photo);
     } else {
-      console.log('No haz seleccionado un post');
+      console.log('No haz seleccionado un photo');
     }
+  }
+
+  bringPhotos() {
+    console.log('bsidcksd');
+  }
+
+  bringUsers() {
+    console.log('aksfjskdjvnslkjdv');
   }
 
 }

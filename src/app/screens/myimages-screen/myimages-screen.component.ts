@@ -31,7 +31,7 @@ export class MyimagesScreenComponent implements OnInit {
     this.uid = '5fbed1a24fca323cd827f238'; // usertesting
     // this.uid = '5fbefe308b1acf29a4f1e25b'; // wasta
     // this.uid = '5fc019d9c1231638fc815195'; // panchodon
-    this.getUser(this.uid);
+    this.getUser(localStorage.getItem('currentUser'));
   }
 
   /*fetchPhotos() {

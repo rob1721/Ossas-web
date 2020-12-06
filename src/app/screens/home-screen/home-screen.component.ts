@@ -15,9 +15,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class HomeScreenComponent implements OnInit {
 
-  public posts: Post[];
-  public posts$: Observable<Post[]>;
-  public asdasd: Post[];
+  public userLogged: User;
 
   public users: User[];
   public photos: Photo[];
@@ -26,25 +24,16 @@ export class HomeScreenComponent implements OnInit {
   public photo: Photo;
 
   constructor(
-    private postService: PostService,
     private userService: UserService,
     private photoService: PhotoService
     ) {
-      this.posts = this.postService.getAllPosts();
   }
 
   ngOnInit(): void {
     // cuando se obtengan las URL quitar el subscribe y agregar el | async en el html card-colums *ngIf="posts$ | async; let posts"
     this.gettingAllPhotos();
     this.gettingAllUsers();
-  }
-
-  fetchPhotos() {
-    this.photoService.getPhotos()
-      .subscribe((photos: Photo[]) => {
-        this.photos = photos;
-        console.log(this.photos);
-      });
+    this.gettingUserLogged(localStorage.getItem('currentUser'));
   }
 
   gettingAllPhotos() {
@@ -52,14 +41,6 @@ export class HomeScreenComponent implements OnInit {
       /*.subscribe(rta => {
         this.fetchPhotos();
       });*/
-  }
-
-  gettingPhotoByUser(user: User) {
-    if (user.photos) {
-      this.userPhotos = user.photos;
-      return user.photos;
-    }
-    return null;
   }
 
   gettingAllUsers() {
@@ -70,8 +51,12 @@ export class HomeScreenComponent implements OnInit {
       });
   }
 
-  selectPost(post: Post) {
-    this.postService.selectPost(post);
+  gettingUserLogged(uid: string) {
+    this.userService.getUser2(uid)
+      .subscribe((user: User) => {
+        this.userLogged = user;
+        console.log(this.userLogged);
+      });
   }
 
 }

@@ -1,17 +1,9 @@
 /* Parent Container */
-.content_img{
-    position: relative;
-    width: 200px;
-    height: 200px;
-    float: left;
-    margin-right: 10px;
-}
-
-   /*Child Text Container*/
-.content_img div{
+/* Child Text Container */
+.card div{
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 0;
+  left: 0;
   background: black;
   color: white;
   margin-bottom: 5px;
@@ -20,15 +12,15 @@
   visibility: hidden;
   -webkit-transition: visibility 0s, opacity 0.5s linear; 
   transition: visibility 0s, opacity 0.5s linear;
-  }
+}
 
-  /*Hover on Parent Container */
-.content_img:hover{
+/* Hover on Parent Container */
+.card:hover{
   cursor: pointer;
 }
 
-.content_img:hover div{
-  width: 150px;
+.card:hover div{
+  width: 100px;
   padding: 8px 15px;
   visibility: visible;
   opacity: 0.7; 

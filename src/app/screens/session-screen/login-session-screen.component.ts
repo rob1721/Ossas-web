@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { User } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-login-session-screen',
@@ -11,9 +12,12 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class LoginSessionScreenComponent implements OnInit {
 
-  formulario: FormGroup;
-  email: string;
-  password: string;
+  public users: User[];
+  public formulario: FormGroup;
+  public email: string;
+  public password: string;
+
+  public modalTrigger: boolean;
 
   constructor(
     private userService: UserService,
@@ -21,18 +25,19 @@ export class LoginSessionScreenComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { }
 
-  bg;
-  bgList;
+  public bg;
+  public bgList;
 
   ngOnInit() {
+    this.modalTrigger = false;
     this.bg = '../../../assets/images/g.jpg';
     this.bgList = [
-      { 'bg': '../../../assets/images/g.jpg', active: true },
-      { 'bg': '../../../assets/images/a.jpg' },
-      { 'bg': '../../../assets/images/d.jpg' },
-      { 'bg': '../../../assets/images/f.jpg' },
-      { 'bg': '../../../assets/images/h.jpg' },
-      { 'bg': '../../../assets/images/j.jpg' }
+      { bg: '../../../assets/images/g.jpg', active: true },
+      { bg: '../../../assets/images/a.jpg' },
+      { bg: '../../../assets/images/d.jpg' },
+      { bg: '../../../assets/images/f.jpg' },
+      { bg: '../../../assets/images/h.jpg' },
+      { bg: '../../../assets/images/j.jpg' }
     ];
 
     this.formulario = this.formBuilder.group({
@@ -51,6 +56,8 @@ export class LoginSessionScreenComponent implements OnInit {
         ])
       )
       });
+
+    this.testing();
   }
 
   public changeBg(list) {
@@ -65,11 +72,27 @@ export class LoginSessionScreenComponent implements OnInit {
   }
 
   public formSubmit() {
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
+    let aux = false;
+    for (const i of this.users) {
+      if ((i.email === this.email) && (i.pass === this.password)) {
+        localStorage.setItem('currentUser', i._id);
+        this.router.navigate(['/home']);
+        aux = true;
+        return alert( 'Welcome ' + i.name );
+      }
+    }
+    if (aux === false) {
+      alert('Datos Incorrectos');
+    }
   }
 
   public testing() {
-    console.log(this.userService.getAllUsers2());
+    this.userService.getAllUsers2()
+      .subscribe((users: User[]) => {
+        this.users = users;
+        console.log(this.users);
+      });
   }
 
 }
